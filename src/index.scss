@@ -67,6 +67,7 @@ body {
   width: 80%;
   max-width: 500px;
   height: 350px;
+  padding: 20px;
   background-color: #fff;
   top: calc(50vh - 175px);
   left: calc(50% - 250px);
@@ -140,12 +141,21 @@ body {
   align-items: center;
 }
 
+.to-do-item-list-container {
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-width: 350px;
+}
+
 .to-do-item-name {
   display: inline-flex;
   align-items: center;
   user-select: none;
   font-weight: bold;
   color: #8F9ABC;
+  max-width: 300px;
+  word-break: break-all;
 
   &::before {
     content: '';
