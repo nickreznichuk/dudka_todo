@@ -5,8 +5,8 @@ import {bool, func, shape, string} from "prop-types";
 const ToDoItem = ({item: {id, value, done}, removeItem, checkItem}) => {
 	return (
 		<div className="to-do-item-container">
-			<input className="to-do-item-done" id='done_checkbox' type="checkbox" onChange={() => checkItem(id)} checked={done} />
-			<label htmlFor="done_checkbox" className="to-do-item-name">{value}</label>
+			<input className="to-do-item-done" id={`done_checkbox_${id}`} type="checkbox" onChange={() => checkItem(id)} checked={done} />
+			<label htmlFor={`done_checkbox_${id}`} className="to-do-item-name">{value}</label>
 			<span className="to-do-item-trash-icon" onClick={() => removeItem(id)}>
 				<svg xmlns="http://www.w3.org/2000/svg" width="10" height="4" viewBox="0 0 10 4" fill="none">
 					<path d="M8.9375 1.5H6.875V1.125C6.875 0.503672 6.37133 0 5.75 0H4.25C3.62867 0 3.125 0.503672 3.125 1.125V1.5H1.0625C0.544742 1.5 0.125 1.91974 0.125 2.4375V3.1875C0.125 3.39462 0.292883 3.5625 0.5 3.5625H9.5C9.70712 3.5625 9.875 3.39462 9.875 3.1875V2.4375C9.875 1.91974 9.45526 1.5 8.9375 1.5ZM3.875 1.125C3.875 0.918281 4.04328 0.75 4.25 0.75H5.75C5.95672 0.75 6.125 0.918281 6.125 1.125V1.5H3.875V1.125Z" fill="#66686B"/>

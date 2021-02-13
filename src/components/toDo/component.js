@@ -47,6 +47,7 @@ export default class ToDo extends Component {
 		const { toDoList, checkItem } = this.props;
 		toDoList.find((item, index) => {
 			if (item.id === id) {
+				console.log('itemID', id, item.id)
 				toDoList[index].done = !toDoList[index].done;
 				return true; // stop searching
 			}
