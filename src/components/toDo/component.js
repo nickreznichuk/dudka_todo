@@ -10,21 +10,10 @@ export default class ToDo extends Component {
 	constructor(props) {
 		super(props);
 
-		const { toDoList } = props;
-
 		this.state = {
 			showAddForm: false,
-			toDoList,
 		}
 	}
-
-	static getDerivedStateFromProps({ toDoList }, prevState) {
-		if (toDoList !== prevState.toDoList) {
-			return { toDoList }
-		}
-		return null;
-	}
-
 
 	toggleForm = () => {
 		const { showAddForm } = this.state;
@@ -47,6 +36,7 @@ export default class ToDo extends Component {
 				toDoList.splice(index, 1);
 				return true; // stop searching
 			}
+			return false;
 		});
 		removeItem(toDoList);
 		localStorage.setItem('toDoList', JSON.stringify(toDoList))
@@ -60,6 +50,7 @@ export default class ToDo extends Component {
 				toDoList[index].done = !toDoList[index].done;
 				return true; // stop searching
 			}
+			return false;
 		});
 		checkItem(toDoList);
 		localStorage.setItem('toDoList', JSON.stringify(toDoList))
@@ -67,7 +58,8 @@ export default class ToDo extends Component {
 	}
 
 	render() {
-		const {showAddForm, toDoList} = this.state;
+		const {showAddForm} = this.state;
+		const {toDoList} = this.props;
 		const toDoIsPresent = toDoList[0]
 
 		return (
